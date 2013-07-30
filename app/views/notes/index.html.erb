@@ -1,0 +1,17 @@
+<div id="trash" style="width: 100%; height: 200px; border: thin red solid">
+</div>
+
+<ul>
+
+<% @notes.each do |n| %>
+  <%= render 'note_row', :note => n %>
+<% end %>
+
+</ul>
+
+<%= form_for(Note.new, remote: true ) do |f| %>
+    <%= f.text_field :content, placeholder: 'Add a new aha! here' %>
+<% end %>
+
+<%= subscribe_to "/notes/new" %>
+<%= subscribe_to "/notes/destroy" %>

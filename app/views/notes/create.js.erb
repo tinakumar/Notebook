@@ -1,0 +1,5 @@
+<% publish_to "/notes/new" do %>
+  //In here we write JS for any subscribed browsers to execute
+  $("ul").append("<%= j(render('note_row', :note => @note)) %>");
+<% end %>
+$("#note_content").val("");
